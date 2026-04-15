@@ -2,7 +2,7 @@
 
 This project approximates π using a geometric approach based on regular polygons and a squeeze argument involving the inradius and circumradius.
 
-Instead of relying on infinite series or predefined constants, this method derives π through purely geometric reasoning and iterative refinement.
+Instead of relying on infinite series or predefined constants, this method derives π through purely geometric reasoning, iterative refinement, and high-precision arithmetic.
 
 ---
 
@@ -73,30 +73,71 @@ At each step:
 
 ---
 
-## 🚀 Implementation
+## ⚡ Convergence
 
-The algorithm is implemented in Python using the `mpmath` library for high-precision arithmetic.
+The method exhibits exponential convergence:
 
-It typically converges to high accuracy within a small number of iterations.
+    Error ∝ 4^(-k)
+
+where k is the number of iterations (doublings of n).
+
+This corresponds to:
+
+    ≈ log10(4) ≈ 0.60206 decimal digits per iteration
+
+Empirical results confirm this rate, with a linear trend observed on a logarithmic error plot.
 
 ---
 
-## 📊 Results
+## 🚀 Implementation
 
-Two types of plots are used:
+The algorithm is implemented in Python using:
 
-1. Convergence plot  
-   Shows how the approximation approaches π over iterations  
+- `mpmath` for arbitrary precision arithmetic  
+- `gmpy2` for faster high-precision numerical operations  
 
-2. Error plot (log scale)  
-   Shows rapid convergence and numerical precision limits  
+Precision is scaled dynamically:
+
+    digits = 610 × scale  
+    mp.mp.dps = digits  
+
+Binary precision is set via:
+
+    get_context().precision ≈ 4 × digits  (in bits)
+
+---
+
+## 📊 Benchmarking
+
+The program is executed across increasing scales:
+
+    scale ∈ [1, 84]
+
+For each scale:
+
+- iterations = 1000 × scale  
+- precision increases proportionally  
+- execution time is measured using `time.perf_counter()`  
+
+Results are logged via:
+
+    python pi_polygon_squeeze.py >> result.txt
+
+---
+
+## 📈 Results
+
+- Error decreases exponentially with iteration count  
+- High-precision agreement with π is achieved (tens of thousands of digits)  
+- Runtime increases due to large integer arithmetic costs  
 
 ---
 
 ## 📁 Files
 
-- pi_polygon_squeeze.py → clean implementation  
-- pi_polygon_derivation.ipynb → full derivation, visualization, and analysis  
+- pi_polygon_squeeze.py → optimized implementation  
+- pi_polygon_derivation.ipynb → derivation, visualization, and analysis  
+- result.txt → recorded outputs across scales  
 
 ---
 
@@ -104,29 +145,29 @@ Two types of plots are used:
 
 Install dependencies:
 
-    pip install mpmath matplotlib numpy
+    pip install mpmath gmpy2 matplotlib numpy
 
 ---
 
 ## ▶️ Run
 
-    python pi_polygon_squeeze.py
+    python pi_polygon_squeeze.py >> result.txt
 
 ---
 
-## 📌 Key Insight
+## 📌 Key Insights
 
-This method demonstrates that:
-
-- π can be derived from geometric bounds  
-- iterative refinement of polygons leads to convergence  
-- scaling does not affect the final ratio  
-- numerical methods can emerge naturally from geometry  
+- π can be derived from purely geometric bounds  
+- Symmetric normalization improves numerical stability  
+- Doubling-based refinement leads to exponential convergence  
+- High-precision arithmetic enables extreme accuracy  
+- Performance depends heavily on underlying numeric libraries  
 
 ---
 
 ## 🧩 Future Work
 
-- Compare convergence with series-based methods  
-- Extend to other geometric approximations  
-- Analyze convergence rate formally  
+- Compare with AGM / Gauss–Legendre methods  
+- Optimize recurrence for lower computational cost  
+- Analyze convergence order more formally  
+- Explore vectorized or parallel implementations  
