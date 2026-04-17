@@ -28,14 +28,14 @@ import mpmath as mp
 import gmpy2
 from gmpy2 import mpfr, get_context
 
-for l in range(1, 22):
-    p = 2**l
+for l in range(1, 85):
+    p = 1000*l
 
     start = time.perf_counter()
 
 
 
-    digits=max(int(0.7*p), 16)
+    digits=int(610*l)
 
     get_context().precision = int(digits*4)  # bits, not digits!
 
@@ -71,10 +71,11 @@ for l in range(1, 22):
     pi_approx = approximate_pi()
 
     end = time.perf_counter()
-    print("power        :", l)
     print("Error        :", mp.nstr(abs(pi_approx - mp.pi), 10))
     print("Time taken   :", end - start)
+    print("power        :", p)
     print()
 
-    #print("Approximation:", pi_approx)
-    #print("Actual π     :", mp.pi)
+    if l == 84:
+        print("Approximation:", pi_approx)
+        print("Actual π     :", mp.pi)
