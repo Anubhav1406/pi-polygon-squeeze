@@ -1,0 +1,83 @@
+power        : 1
+Error        : 0.004493561542
+Time taken   : 0.0007535000331699848
+
+power        : 2
+Error        : 0.00028039639
+Time taken   : 5.245814099907875e-05
+
+power        : 3
+Error        : 1.095181559e-6
+Time taken   : 4.2458996176719666e-05
+
+power        : 4
+Error        : 1.671114852e-11
+Time taken   : 4.4209184125065804e-05
+
+power        : 5
+Error        : 3.911995611e-21
+Time taken   : 0.000802250113338232
+
+power        : 6
+Error        : 2.109228297e-40
+Time taken   : 0.0009743750561028719
+
+power        : 7
+Error        : 6.198505363e-79
+Time taken   : 9.966688230633736e-05
+
+power        : 8
+Error        : 5.35313371e-156
+Time taken   : 0.00017925002612173557
+
+power        : 9
+Error        : 3.992549519e-310
+Time taken   : 0.0009138330351561308
+
+power        : 10
+Error        : 2.220929391e-618
+Time taken   : 0.002171665895730257
+
+power        : 11
+Error        : 6.872324082e-1235
+Time taken   : 0.007867458974942565
+
+power        : 12
+Error        : 6.580234819e-2468
+Time taken   : 0.03840150008909404
+
+power        : 13
+Error        : 6.032772007e-4934
+Time taken   : 0.2509977091103792
+
+power        : 14
+Error        : 5.070700432e-9866
+Time taken   : 1.3613125830888748
+
+power        : 15
+Error        : 3.582366678e-19730
+Time taken   : 7.296129041118547
+
+power        : 16
+Error        : 1.788027533e-39458
+Time taken   : 38.003871500026435
+
+power        : 17
+Error        : 4.454331476e-78915
+Time taken   : 182.0238705421798
+
+power        : 18
+Error        : 2.76438924e-157828
+Time taken   : 809.1024376249406
+
+power        : 19
+Error        : 1.064712901e-315654
+Time taken   : 3500.0609631659463
+
+power        : 20
+Error        : 1.579425559e-631307
+Time taken   : 15602.17992854095
+
+power        : 21
+Error        : 3.475621318e-1262613
+Time taken   : 66837.30353699997
