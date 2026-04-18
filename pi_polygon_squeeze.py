@@ -28,7 +28,7 @@ import mpmath as mp
 import gmpy2
 from gmpy2 import mpfr, get_context
 
-for scale in range(1, 85):
+for scale in range(1, 101):
     start = time.perf_counter()
 
     digits=610*scale
@@ -65,6 +65,6 @@ for scale in range(1, 85):
     print("Time taken   :", end - start)
     print("iterations   :", 1000*scale, "\n")
 
-    if scale == 84:
+    if scale == 100:
         print("Approximation:", pi_approx)
         print("Actual π     :", mp.pi)

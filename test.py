@@ -28,7 +28,7 @@ import mpmath as mp
 import gmpy2
 from gmpy2 import mpfr, get_context
 
-for l in range(1, 85):
+for l in range(1, 101):
     p = 1000*l
 
     start = time.perf_counter()
@@ -76,6 +76,6 @@ for l in range(1, 85):
     print("power        :", p)
     print()
 
-    if l == 84:
+    if l == 100:
         print("Approximation:", pi_approx)
         print("Actual π     :", mp.pi)
